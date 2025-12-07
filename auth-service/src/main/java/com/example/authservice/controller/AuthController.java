@@ -63,14 +63,11 @@ public class AuthController {
 
 		// create cookie and token
 		ResponseCookie jwtCookie = jwtUtils.generateJwtCookie(userDetails);
-		String token = jwtUtils.generateTokenFromUsername(userDetails.getUsername()); // token string (if you want in
-																						// body)
+		String token = jwtUtils.generateTokenFromUsername(userDetails.getUsername());
 
 		List<String> roles = userDetails.getAuthorities().stream().map(a -> a.getAuthority())
 				.collect(Collectors.toList());
 
-		// Return cookie plus body (body does not include token if you want extra
-		// safety)
 		return ResponseEntity.ok().header(HttpHeaders.SET_COOKIE, jwtCookie.toString()).body(new UserInfoResponse(
 				userDetails.getId(), userDetails.getUsername(), userDetails.getEmail(), token, roles));
 	}
@@ -99,7 +96,6 @@ public class AuthController {
 					.orElseThrow(() -> new RuntimeException("Error: Role USER not found"));
 			roles.add(userRole);
 		} else {
-			// convert input string roles to DB roles
 			strRoles.forEach(role -> {
 				switch (role.toLowerCase()) {
 				case "admin":

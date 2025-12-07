@@ -24,7 +24,6 @@ public class JwtReactiveAuthenticationManager implements ReactiveAuthenticationM
 
 	@Override
 	public Mono<Authentication> authenticate(Authentication authentication) {
-		// we expect the credentials to contain the raw token
 		String token = (authentication.getCredentials() == null) ? null : authentication.getCredentials().toString();
 		if (token == null || !jwtUtil.validate(token)) {
 			return Mono.empty();
@@ -42,14 +41,9 @@ public class JwtReactiveAuthenticationManager implements ReactiveAuthenticationM
 			rolesList = Arrays.stream(s.split(",")).filter(r -> !r.isEmpty()).collect(Collectors.toList());
 		}
 
-		var authorities = rolesList.stream()
-				// ensure authorities have ROLE_ prefix (auth service stored ROLE_USER etc;
-				// adapt if needed)
-				.map(r -> r.startsWith("ROLE_") ? r : "ROLE_" + r).map(SimpleGrantedAuthority::new)
-				.collect(Collectors.toList());
+		var authorities = rolesList.stream().map(r -> r.startsWith("ROLE_") ? r : "ROLE_" + r)
+				.map(SimpleGrantedAuthority::new).collect(Collectors.toList());
 
-		// principal = username, credentials = null (we don't keep token here),
-		// authorities set
 		var auth = new UsernamePasswordAuthenticationToken(username, null, authorities);
 		return Mono.just(auth);
 	}

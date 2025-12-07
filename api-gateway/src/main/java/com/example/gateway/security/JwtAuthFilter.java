@@ -29,12 +29,10 @@ public class JwtAuthFilter implements WebFilter {
 
 		String token = null;
 
-		// 1. Try Authorization header
 		String authHeader = exchange.getRequest().getHeaders().getFirst(HttpHeaders.AUTHORIZATION);
 		if (authHeader != null && authHeader.startsWith("Bearer "))
 			token = authHeader.substring(7);
 
-		// 2. Try cookie
 		if (token == null && exchange.getRequest().getCookies().getFirst("bezkoder") != null)
 			token = exchange.getRequest().getCookies().getFirst("bezkoder").getValue();
 

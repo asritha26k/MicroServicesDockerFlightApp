@@ -88,7 +88,6 @@ public class JwtUtils {
 			Jwts.parserBuilder().setSigningKey(key()).build().parse(authToken);
 			return true;
 		} catch (MalformedJwtException e) {
-			// log if needed
 		} catch (ExpiredJwtException e) {
 		} catch (UnsupportedJwtException e) {
 		} catch (IllegalArgumentException e) {

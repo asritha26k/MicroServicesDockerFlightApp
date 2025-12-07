@@ -20,7 +20,6 @@ public class WebSecurityConfig {
 		return new BCryptPasswordEncoder();
 	}
 
-	// we expose AuthenticationManager to be used in controller
 	@Bean
 	public AuthenticationManager authenticationManager(AuthenticationConfiguration authConfig) throws Exception {
 		return authConfig.getAuthenticationManager();

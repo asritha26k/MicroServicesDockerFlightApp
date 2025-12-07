@@ -17,7 +17,7 @@ import io.jsonwebtoken.security.Keys;
 public class JwtUtil {
 
 	@Value("${jwt.secret}")
-	private String jwtSecret; // Base64 encoded, SAME as auth-service
+	private String jwtSecret;
 
 	private Key getSigningKey() {
 		byte[] keyBytes = Decoders.BASE64.decode(jwtSecret);
@@ -37,12 +37,10 @@ public class JwtUtil {
 		}
 	}
 
-	// ✅ Extract username (subject)
 	public String extractUsername(String token) {
 		return extractAllClaims(token).getSubject();
 	}
 
-	// ✅ Extract roles list from token
 	public List<String> extractRoles(String token) {
 		Claims claims = extractAllClaims(token);
 
@@ -50,7 +48,6 @@ public class JwtUtil {
 		if (rolesObj == null)
 			return List.of();
 
-		// Example: "[ROLE_USER, ROLE_ADMIN]"
 		String s = rolesObj.toString().replace("[", "").replace("]", "").replace(" ", "");
 
 		if (s.isEmpty())
