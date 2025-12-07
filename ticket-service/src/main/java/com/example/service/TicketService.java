@@ -62,7 +62,7 @@ public class TicketService {
 
 		// --- HANDLE KAFKA FAILURE
 		try {
-			kafkaTemplate.send("ticket-booked", event).exceptionally(ex -> {
+			kafkaTemplate.send("ticket-confirmation", event).exceptionally(ex -> {
 				logger.error("Failed to send Kafka message for PNR {}: {}", pnr, ex.getMessage());
 				return null;
 			});
