@@ -68,8 +68,8 @@ public class AuthController {
 		List<String> roles = userDetails.getAuthorities().stream().map(a -> a.getAuthority())
 				.collect(Collectors.toList());
 
-		return ResponseEntity.ok().header(HttpHeaders.SET_COOKIE, jwtCookie.toString()).body(new UserInfoResponse(
-				userDetails.getId(), userDetails.getUsername(), userDetails.getEmail(), token, roles));
+		return ResponseEntity.ok().header(HttpHeaders.SET_COOKIE, jwtCookie.toString()).body(
+				new UserInfoResponse(userDetails.getId(), userDetails.getUsername(), userDetails.getEmail(), roles));
 	}
 
 	@PostMapping("/signup")
