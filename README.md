@@ -10,7 +10,7 @@ This is a modular microservices application that handles flight bookings, passen
 
 ![Architecture Diagram](ArchitectureDiagram.png)
 
-```
+
 
 ##  Services
 
