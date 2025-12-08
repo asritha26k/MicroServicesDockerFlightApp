@@ -14,7 +14,6 @@ import com.example.request.PassengerDetailsRequest;
 import com.example.response.PassengerDetailsResponse;
 import com.example.service.PassengerService;
 
-import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 
 @RequestMapping("passenger")
@@ -25,13 +24,6 @@ public class PassengerController {
 
 	PassengerController(PassengerService passengerService) {
 		this.passengerService = passengerService;
-	}
-
-	@GetMapping("/debug")
-	public String debug(HttpServletRequest request) {
-		String auth = request.getHeader("Authorization");
-		System.out.println("PASSENGER SERVICE RECEIVED TOKEN = " + auth);
-		return auth;
 	}
 
 	// get request by id

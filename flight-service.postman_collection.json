@@ -1,0 +1,140 @@
+{
+	"info": {
+		"_postman_id": "e9dca9dd-e3ac-4b44-9af0-302e72b1ec7f",
+		"name": "flight-service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44987418",
+		"_collection_link": "https://asritha-1866103.postman.co/workspace/FlightMicroServices~432fad39-21e8-4e01-aac3-484c65c59b42/collection/44987418-e9dca9dd-e3ac-4b44-9af0-302e72b1ec7f?action=share&source=collection_link&creator=44987418"
+	},
+	"item": [
+		{
+			"name": "registering flights",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"airline\": \"INDIGO\",\r\n  \"origin\": \"Hyderabad\",\r\n  \"destination\": \"Bangalore\",\r\n  \"price\": 4000,\r\n  \"departureTime\": \"2025-12-11T10:30:00\",\r\n  \"arrivalTime\": \"2025-12-11T12:00:00\"\r\n}\r\n// {\r\n//   \"airline\": \"EMIRATES\",\r\n//   \"origin\": \"Goa\",\r\n//   \"destination\": \"Chennai\",\r\n//   \"price\": 10000,\r\n//   \"departureTime\": \"2025-12-11T10:30:00\",\r\n//   \"arrivalTime\": \"2025-12-11T12:00:00\"\r\n// }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/flight-service/flight/register",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"flight-service",
+						"flight",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get by flight id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/flight-service/flight/getFlightById/1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"flight-service",
+						"flight",
+						"getFlightById",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get by origin and destination",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"origin\": \"Goa\",\r\n  \"destination\": \"Chennai\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/flight-service/flight/getByOriginDestination",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"flight-service",
+						"flight",
+						"getByOriginDestination"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleting flight by id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/flight-service/flight/delete/1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"flight-service",
+						"flight",
+						"delete",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "flightUrl9002",
+			"value": ""
+		}
+	]
+}

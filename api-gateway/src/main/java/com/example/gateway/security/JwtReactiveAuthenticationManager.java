@@ -38,7 +38,7 @@ public class JwtReactiveAuthenticationManager implements ReactiveAuthenticationM
 			rolesList = List.of();
 		} else {
 			String s = rolesObj.toString().replace("[", "").replace("]", "").replace(" ", "");
-			rolesList = Arrays.stream(s.split(",")).filter(r -> !r.isEmpty()).collect(Collectors.toList());
+			rolesList = Arrays.stream(s.split(",")).filter(r -> !r.isEmpty()).toList();
 		}
 
 		var authorities = rolesList.stream().map(r -> r.startsWith("ROLE_") ? r : "ROLE_" + r)

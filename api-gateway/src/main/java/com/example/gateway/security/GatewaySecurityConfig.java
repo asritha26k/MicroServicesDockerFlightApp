@@ -1,5 +1,8 @@
 package com.example.gateway.security;
 
+import static com.example.gateway.security.RoleConstants.ADMIN;
+import static com.example.gateway.security.RoleConstants.USER;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.web.server.SecurityWebFiltersOrder;
@@ -22,21 +25,21 @@ public class GatewaySecurityConfig {
 
 				.pathMatchers("/auth-service/api/auth/**").permitAll()
 
-				.pathMatchers("/flight-service/flight/register").hasRole("ADMIN")
-				.pathMatchers("/flight-service/flight/delete/**").hasRole("ADMIN")
+				.pathMatchers("/flight-service/flight/register").hasRole(ADMIN)
+				.pathMatchers("/flight-service/flight/delete/**").hasRole(ADMIN)
 
-				.pathMatchers("/flight-service/flight/getFlightById/**").hasAnyRole("ADMIN", "USER")
+				.pathMatchers("/flight-service/flight/getFlightById/**").hasAnyRole(ADMIN, USER)
 
 				.pathMatchers("/flight-service/flight/**").permitAll()
 
-				.pathMatchers("/passenger-service/passenger/register").hasAnyRole("ADMIN", "USER")
-				.pathMatchers("/passenger-service/passenger/getByPassengerId/**").hasAnyRole("ADMIN", "USER")
-				.pathMatchers("/passenger-service/passenger/getPassengerIdByEmail/**").hasAnyRole("ADMIN", "USER")
-				.pathMatchers("/passenger-service/passenger/delete/**").hasAnyRole("ADMIN", "USER")
+				.pathMatchers("/passenger-service/passenger/register").hasAnyRole(ADMIN, USER)
+				.pathMatchers("/passenger-service/passenger/getByPassengerId/**").hasAnyRole(ADMIN, USER)
+				.pathMatchers("/passenger-service/passenger/getPassengerIdByEmail/**").hasAnyRole(ADMIN, USER)
+				.pathMatchers("/passenger-service/passenger/delete/**").hasAnyRole(ADMIN, USER)
 
-				.pathMatchers("/ticket-service/ticket/book").hasAnyRole("ADMIN", "USER")
-				.pathMatchers("/ticket-service/ticket/getByPnr/**").hasAnyRole("ADMIN", "USER")
-				.pathMatchers("/ticket-service/ticket/getTicketsByEmail/**").hasAnyRole("ADMIN", "USER")
+				.pathMatchers("/ticket-service/ticket/book").hasAnyRole(ADMIN, USER)
+				.pathMatchers("/ticket-service/ticket/getByPnr/**").hasAnyRole(ADMIN, USER)
+				.pathMatchers("/ticket-service/ticket/getTicketsByEmail/**").hasAnyRole(ADMIN, USER)
 
 				.anyExchange().authenticated())
 
@@ -45,5 +48,4 @@ public class GatewaySecurityConfig {
 				.httpBasic(ServerHttpSecurity.HttpBasicSpec::disable)
 				.formLogin(ServerHttpSecurity.FormLoginSpec::disable).build();
 	}
-
 }

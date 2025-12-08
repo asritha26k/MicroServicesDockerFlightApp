@@ -1,0 +1,146 @@
+{
+	"info": {
+		"_postman_id": "8f3b9660-38f4-413c-8f7e-47caabcdbf84",
+		"name": "passenger-service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44987418",
+		"_collection_link": "https://asritha-1866103.postman.co/workspace/FlightMicroServices~432fad39-21e8-4e01-aac3-484c65c59b42/collection/44987418-8f3b9660-38f4-413c-8f7e-47caabcdbf84?action=share&source=collection_link&creator=44987418"
+	},
+	"item": [
+		{
+			"name": "registering passenger",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoYXJpbmkiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNzY1MDg5ODU2LCJleHAiOjE3NjUwOTAxNTZ9.iGBTAVMUNFEaKiKQwhdRv50YozZI6_-zXYAofxYWSKk",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"asritha\",\r\n  \"phoneNumber\": \"9876543210\",\r\n  \"email\": \"asritha@example.com\",\r\n  \"houseNo\": \"12-34\",\r\n  \"city\": \"Hyd\",\r\n  \"state\": \"Telangana\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/passenger-service/passenger/register",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"passenger-service",
+						"passenger",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getting by passenger id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/passenger-service/passenger/getByPassengerId/1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"passenger-service",
+						"passenger",
+						"getByPassengerId",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getting id by email",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/passenger-service/passenger/getPassengerIdByEmail/asritha@example.com",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"passenger-service",
+						"passenger",
+						"getPassengerIdByEmail",
+						"asritha@example.com"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Request",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Asritha\",\r\n  \"phoneNumber\": \"9876543210\",\r\n  \"email\": \"asritha@example.com\",\r\n  \"houseNo\": \"12-34\",\r\n  \"city\": \"Hyderabad\",\r\n  \"state\": \"Telangana\"\r\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/passenger-service/passenger/delete/1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"passenger-service",
+						"passenger",
+						"delete",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "PassengerUrl9001",
+			"value": ""
+		}
+	]
+}

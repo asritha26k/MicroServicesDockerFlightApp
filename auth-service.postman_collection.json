@@ -1,0 +1,113 @@
+{
+	"info": {
+		"_postman_id": "a18899c9-093f-4f8d-8862-48c9ec53c5bf",
+		"name": "auth-service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44987418",
+		"_collection_link": "https://asritha-1866103.postman.co/workspace/FlightMicroServices~432fad39-21e8-4e01-aac3-484c65c59b42/collection/44987418-a18899c9-093f-4f8d-8862-48c9ec53c5bf?action=share&source=collection_link&creator=44987418"
+	},
+	"item": [
+		{
+			"name": "sing up",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"asritha\",\r\n  \"email\": \"asritha@example.com\",\r\n  \"password\": \"password\",\r\n  \"roles\":[\"user\"]\r\n}\r\n// {\r\n//   \"username\": \"adminUser3\",\r\n//   \"email\": \"admin3@gmail.com\",\r\n//   \"password\": \"password\",\r\n//   \"roles\": [\"admin\"]\r\n// }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/auth-service/api/auth/signup",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"auth-service",
+						"api",
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sign in",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhc3JpdGhhIiwicm9sZXMiOlsiUk9MRV9VU0VSIl0sImlhdCI6MTc2NTA4ODY5NiwiZXhwIjoxNzY1MDg4OTk2fQ.BSMHaMZMwGw7n32Y8KcmcFif5D79hVMi-DqzGWWl8Bc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"asritha\",\r\n  \"password\": \"password\"\r\n}\r\n// {\r\n//   \"username\": \"adminUser3\",\r\n//   \"password\": \"password\",\r\n// }\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/auth-service/api/auth/signin",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"auth-service",
+						"api",
+						"auth",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sign out",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhc3JpdGhhIiwicm9sZXMiOlsiUk9MRV9VU0VSIl0sImlhdCI6MTc2NTA4ODY5NiwiZXhwIjoxNzY1MDg4OTk2fQ.BSMHaMZMwGw7n32Y8KcmcFif5D79hVMi-DqzGWWl8Bc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"asritha\",\r\n  \"password\": \"password\"\r\n}\r\n// {\r\n//   \"username\": \"adminUser3\",\r\n//   \"password\": \"password\",\r\n// }\r\n"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/auth-service/api/auth/signout",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"auth-service",
+						"api",
+						"auth",
+						"signout"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

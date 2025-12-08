@@ -1,9 +1,11 @@
 package com.example.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.when;
 
 import java.util.Optional;
 
@@ -34,20 +36,6 @@ class PassengerServiceTest {
 
 	@Mock
 	private AddressRepository addressRepository;
-
-	@Test
-	void testGetPassengerDetailsService_Success() throws Exception {
-		Passenger passenger = Passenger.builder().passengerId(1).name("John").email("john@gmail.com")
-				.phoneNumber("12345").build();
-
-		Mockito.when(passengerRepository.findById(1)).thenReturn(Optional.of(passenger));
-
-		ResponseEntity<PassengerDetailsResponse> response = passengerService.getPassengerDetailsService(1);
-
-		assertEquals(HttpStatus.OK, response.getStatusCode());
-		assertEquals("John", response.getBody().getName());
-		assertEquals("john@gmail.com", response.getBody().getEmail());
-	}
 
 	@Test
 	void testGetPassengerDetailsService_NotFound() {
@@ -122,6 +110,53 @@ class PassengerServiceTest {
 		assertEquals("deleted", response.getBody());
 
 		Mockito.verify(passengerRepository, times(1)).deleteById(1);
+	}
+
+	@Test
+	void testGetPassengerDetailsService_Success() {
+
+		Address address = Address.builder().city("Hyderabad").state("TS").houseNo("12-3").build();
+
+		Passenger passenger = Passenger.builder().passengerId(1).email("abc@gmail.com").name("Asritha")
+				.phoneNumber("9999999999").address(address).build();
+
+		when(passengerRepository.findById(1)).thenReturn(Optional.of(passenger));
+
+		ResponseEntity<PassengerDetailsResponse> response = passengerService.getPassengerDetailsService(1);
+
+		assertEquals(HttpStatus.OK, response.getStatusCode());
+		assertNotNull(response.getBody());
+
+		PassengerDetailsResponse body = response.getBody();
+		assertEquals("abc@gmail.com", body.getEmail());
+		assertEquals("Asritha", body.getName());
+		assertEquals("9999999999", body.getPhoneNum());
+		assertEquals("Hyderabad", body.getCity());
+		assertEquals("TS", body.getState());
+	}
+
+	@Test
+	void testRegisterPassengerService_Success() {
+
+		PassengerDetailsRequest req = new PassengerDetailsRequest();
+		req.setEmail("abc@gmail.com");
+		req.setName("Asritha");
+		req.setPhoneNumber("9999999999");
+		req.setCity("Hyd");
+		req.setState("TS");
+		req.setHouseNo("12-3");
+
+		Passenger saved = Passenger.builder().passengerId(10).email(req.getEmail()).name(req.getName())
+				.phoneNumber(req.getPhoneNumber())
+				.address(Address.builder().city(req.getCity()).state(req.getState()).houseNo(req.getHouseNo()).build())
+				.build();
+
+		when(passengerRepository.save(any(Passenger.class))).thenReturn(saved);
+
+		ResponseEntity<Integer> resp = passengerService.registerPassengerService(req);
+
+		assertEquals(HttpStatus.CREATED, resp.getStatusCode());
+		assertEquals(10, resp.getBody());
 	}
 
 }

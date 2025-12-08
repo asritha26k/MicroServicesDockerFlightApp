@@ -1,0 +1,112 @@
+{
+	"info": {
+		"_postman_id": "ce2d6168-5a40-4f51-9250-5c96b6cb8018",
+		"name": "ticket service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44987418",
+		"_collection_link": "https://asritha-1866103.postman.co/workspace/FlightMicroServices~432fad39-21e8-4e01-aac3-484c65c59b42/collection/44987418-ce2d6168-5a40-4f51-9250-5c96b6cb8018?action=share&source=collection_link&creator=44987418"
+	},
+	"item": [
+		{
+			"name": "booking ticket",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"flightId\": 2,\r\n  \"passengerId\": 3,\r\n  \"seatNo\": \"6A\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/ticket-service/ticket/book",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"ticket-service",
+						"ticket",
+						"book"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getting ticket by pnr",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/ticket-service/ticket/getByPnr/31f97f24",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"ticket-service",
+						"ticket",
+						"getByPnr",
+						"31f97f24"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get tickets by email",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/ticket-service/ticket/getTicketsByEmail/asritha@example.com",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"ticket-service",
+						"ticket",
+						"getTicketsByEmail",
+						"asritha@example.com"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "ticketUrl9003",
+			"value": ""
+		}
+	]
+}

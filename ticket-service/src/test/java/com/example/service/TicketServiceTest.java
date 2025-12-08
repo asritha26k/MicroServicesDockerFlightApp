@@ -3,6 +3,7 @@ package com.example.service;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
@@ -10,6 +11,7 @@ import static org.mockito.Mockito.when;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 
@@ -22,6 +24,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.core.KafkaTemplate;
 
+import com.example.exception.ResourceNotFoundException;
+import com.example.exception.SeatAlreadyBookedException;
+import com.example.exception.TicketExceptionHandler;
 import com.example.feign.FlightInterface;
 import com.example.feign.PassengerInterface;
 import com.example.model.Ticket;
@@ -168,6 +173,130 @@ class TicketServiceTest {
 
 		assertNotNull(response.getBody());
 		assertTrue(response.getBody().isEmpty());
+	}
+
+	@Test
+	void testBookTicket_SeatAlreadyBookedException() {
+		BookTicketRequest req = new BookTicketRequest();
+		req.setFlightId(1);
+		req.setPassengerId(10);
+		req.setSeatNo("A1");
+
+		when(ticketRepository.existsByFlightIdAndSeatNo(1, "A1")).thenReturn(true);
+
+		SeatAlreadyBookedException ex = org.junit.jupiter.api.Assertions.assertThrows(SeatAlreadyBookedException.class,
+				() -> ticketService.bookTicketService(req));
+
+		assertEquals("Seat already booked for this flight!", ex.getMessage());
+	}
+
+	@Test
+	void testBookTicket_KafkaSendFailsButServiceStillReturnsPNR() {
+		BookTicketRequest req = new BookTicketRequest();
+		req.setFlightId(1);
+		req.setPassengerId(10);
+		req.setSeatNo("A1");
+
+		when(ticketRepository.existsByFlightIdAndSeatNo(1, "A1")).thenReturn(false);
+		when(ticketRepository.save(any(Ticket.class))).thenAnswer(i -> i.getArguments()[0]);
+
+		// simulate kafka failure
+		when(kafkaTemplate.send(any(), any())).thenThrow(new RuntimeException("Kafka down"));
+
+		ResponseEntity<String> response = ticketService.bookTicketService(req);
+
+		assertEquals(HttpStatus.OK, response.getStatusCode());
+		assertNotNull(response.getBody());
+		assertEquals(8, response.getBody().length());
+	}
+
+	@Test
+	void testGetByPnrService_PassengerResponseNull_ThrowsException() {
+
+		Ticket ticket = Ticket.builder().pnr("XYZ12345").seatNo("A1").flightId(1).passengerId(10).build();
+
+		when(ticketRepository.findByPnr("XYZ12345")).thenReturn(Optional.of(ticket));
+
+		// passengerResp = null
+		when(passengerInterface.getPassengerDetails(10)).thenReturn(null);
+
+		assertThrows(ResourceNotFoundException.class, () -> ticketService.getByPnrService("XYZ12345"));
+	}
+
+	@Test
+	void testGetByPnrService_PassengerBodyNull_ThrowsException() {
+
+		Ticket ticket = Ticket.builder().pnr("XYZ12345").seatNo("A1").flightId(1).passengerId(10).build();
+
+		when(ticketRepository.findByPnr("XYZ12345")).thenReturn(Optional.of(ticket));
+
+		// body = null
+		when(passengerInterface.getPassengerDetails(10)).thenReturn(ResponseEntity.ok(null));
+
+		assertThrows(ResourceNotFoundException.class, () -> ticketService.getByPnrService("XYZ12345"));
+	}
+
+	@Test
+	void testHandleSeatAlreadyBooked() {
+		TicketExceptionHandler handler = new TicketExceptionHandler();
+
+		SeatAlreadyBookedException ex = new SeatAlreadyBookedException("Seat already booked!");
+
+		ResponseEntity<Map<String, String>> response = handler.handleSeatAlreadyBooked(ex);
+
+		assertEquals(409, response.getStatusCodeValue());
+		assertEquals("Seat already booked!", response.getBody().get("error"));
+	}
+
+	@Test
+	void testGetByPnrService_FlightResponseNull_ThrowsResourceNotFound() {
+		// prepare ticket
+		Ticket ticket = Ticket.builder().pnr("PNRX0001").seatNo("A1").flightId(1).passengerId(10).build();
+
+		when(ticketRepository.findByPnr("PNRX0001")).thenReturn(Optional.of(ticket));
+
+		// passenger exists and returns body
+		PassengerDetailsResponse passenger = new PassengerDetailsResponse();
+		passenger.setName("John");
+		passenger.setEmail("john@gmail.com");
+		when(passengerInterface.getPassengerDetails(10)).thenReturn(ResponseEntity.ok(passenger));
+
+		// flightResp == null branch
+		when(flightInterface.getByID(1)).thenReturn(null);
+
+		assertThrows(ResourceNotFoundException.class, () -> ticketService.getByPnrService("PNRX0001"));
+	}
+
+	@Test
+	void testGetByPnrService_FlightBodyNull_ThrowsResourceNotFound() {
+		// prepare ticket
+		Ticket ticket = Ticket.builder().pnr("PNRY0002").seatNo("A2").flightId(1).passengerId(10).build();
+
+		when(ticketRepository.findByPnr("PNRY0002")).thenReturn(Optional.of(ticket));
+
+		// passenger exists and returns body
+		PassengerDetailsResponse passenger = new PassengerDetailsResponse();
+		passenger.setName("Jane");
+		passenger.setEmail("jane@gmail.com");
+		when(passengerInterface.getPassengerDetails(10)).thenReturn(ResponseEntity.ok(passenger));
+
+		// flightResp.getBody() == null branch
+		when(flightInterface.getByID(1)).thenReturn(ResponseEntity.ok(null));
+
+		assertThrows(ResourceNotFoundException.class, () -> ticketService.getByPnrService("PNRY0002"));
+	}
+
+	@Test
+	void testHandleSeatAlreadyBookedException() {
+		TicketExceptionHandler handler = new TicketExceptionHandler();
+
+		SeatAlreadyBookedException exception = new SeatAlreadyBookedException("Seat already booked");
+
+		ResponseEntity<Map<String, String>> response = handler.handleSeatAlreadyBooked(exception);
+
+		assertEquals(HttpStatus.CONFLICT, response.getStatusCode());
+		assertNotNull(response.getBody());
+		assertEquals("Seat already booked", response.getBody().get("error"));
 	}
 
 }

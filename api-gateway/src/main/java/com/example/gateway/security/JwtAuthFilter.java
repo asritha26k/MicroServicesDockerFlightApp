@@ -1,7 +1,6 @@
 package com.example.gateway.security;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -45,7 +44,7 @@ public class JwtAuthFilter implements WebFilter {
 			List<String> roles = jwtUtil.extractRoles(token);
 
 			var authorities = roles.stream().map(r -> r.startsWith("ROLE_") ? r : "ROLE_" + r)
-					.map(SimpleGrantedAuthority::new).collect(Collectors.toList());
+					.map(SimpleGrantedAuthority::new).toList();
 
 			Authentication auth = new UsernamePasswordAuthenticationToken(username, null, authorities);
 
