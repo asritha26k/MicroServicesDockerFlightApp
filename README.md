@@ -2,7 +2,7 @@
 
 A comprehensive microservices-based flight booking application built with Spring Boot, Spring Cloud, and Docker. This project demonstrates a distributed system architecture with multiple services communicating through a service registry.
 
-## 📋 Project Overview
+##  Project Overview
 
 This is a modular microservices application that handles flight bookings, passenger management, tickets, authentication, and email notifications. The system uses Docker containerization for easy deployment and scalability.
 
@@ -31,7 +31,7 @@ This is a modular microservices application that handles flight bookings, passen
         └─────────────────┘    └────────────────┘
 ```
 
-## 🏗️ Services
+##  Services
 
 ### 1. **Service Registry (Eureka)**
 - **Port:** 8761
@@ -77,7 +77,7 @@ This is a modular microservices application that handles flight bookings, passen
 - **Purpose:** Handles email notifications for bookings and confirmations
 - **Location:** `email-service/`
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 
@@ -123,7 +123,7 @@ This is a modular microservices application that handles flight bookings, passen
    - Start remaining services (flight, passenger, ticket, email)
    - Start API Gateway (api-gateway)
 
-## 📦 Project Structure
+##  Project Structure
 
 ```
 Week8Assignment/
@@ -141,7 +141,7 @@ Week8Assignment/
 └── README.md                 # This file
 ```
 
-## 🛠️ Technology Stack
+##  Technology Stack
 
 - **Framework:** Spring Boot 2.x / 3.x
 - **Cloud Services:** Spring Cloud (Eureka, Gateway, Config)
@@ -151,7 +151,7 @@ Week8Assignment/
 - **Containerization:** Docker & Docker Compose
 - **Service Communication:** REST APIs
 
-## 🔌 API Endpoints
+##  API Endpoints
 
 ### Through API Gateway (localhost:8765)
 
@@ -166,7 +166,7 @@ Example routes:
 - Ticket Service: `/ticket-service/tickets`
 - Auth Service: `/auth-service/auth`
 
-## 🗄️ Database Configuration
+##  Database Configuration
 
 ### PostgreSQL Services
 - **Host:** postgres-db
@@ -179,13 +179,13 @@ Example routes:
 - **Database:** Initialized from `auth-service/mysql-init/init.sql`
 - **Root Password:** yourpassword (update in production)
 
-## 🔐 Security
+##  Security
 
 - **Authentication:** Handled by Auth Service using Spring Security
 - **API Gateway:** Provides a single entry point with request routing and filtering
 - **Eureka:** Service-to-service communication within internal network
 
-## 📝 Docker Compose Services
+##  Docker Compose Services
 
 The `docker-compose.yml` orchestrates:
 - Network isolation (`app-net` bridge network)
@@ -194,7 +194,7 @@ The `docker-compose.yml` orchestrates:
 - Volume mounting for database initialization
 - Environment variable configuration
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### Services not starting
 1. Check if ports are already in use
@@ -217,7 +217,7 @@ The `docker-compose.yml` orchestrates:
 - **Config Server:** http://localhost:8888 - Access centralized configuration
 - **Docker Logs:** `docker-compose logs -f` - Stream logs from all services
 
-## 🛑 Stopping the Application
+##  Stopping the Application
 
 ```powershell
 docker-compose down
@@ -228,30 +228,4 @@ To also remove volumes:
 docker-compose down -v
 ```
 
-## 📈 Future Enhancements
 
-- Add distributed tracing (Sleuth + Zipkin)
-- Implement Circuit Breaker pattern (Hystrix/Resilience4j)
-- Add comprehensive API documentation (Swagger/OpenAPI)
-- Implement message queuing (RabbitMQ/Kafka)
-- Add monitoring and metrics (Prometheus + Grafana)
-
-## 👨‍💻 Development
-
-For local development without Docker:
-1. Ensure PostgreSQL and MySQL are installed and running
-2. Update database credentials in application properties
-3. Build and run each service individually
-4. Access Eureka at http://localhost:8761 to verify registration
-
-## 📄 License
-
-This project is part of a course assignment.
-
-## 📧 Support
-
-For issues or questions, refer to the individual service documentation in their respective directories.
-
----
-
-**Last Updated:** December 2025
