@@ -1,0 +1,276 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.4)
+
+2025-12-08T06:11:05.102Z  INFO 1 --- [email-service] [           main] c.example.demo.EmailServiceApplication   : Starting EmailServiceApplication v0.0.1-SNAPSHOT using Java 17.0.17 with PID 1 (/app/email-service.jar started by root in /app)
+2025-12-08T06:11:05.116Z DEBUG 1 --- [email-service] [           main] c.example.demo.EmailServiceApplication   : Running with Spring Boot v3.3.4, Spring v6.1.13
+2025-12-08T06:11:05.118Z  INFO 1 --- [email-service] [           main] c.example.demo.EmailServiceApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-12-08T06:11:11.764Z  INFO 1 --- [email-service] [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=5d59149f-ca3a-33f3-b800-6f6a5186d896
+2025-12-08T06:11:14.132Z  WARN 1 --- [email-service] [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2025-12-08T06:11:14.151Z  WARN 1 --- [email-service] [           main] trationDelegate$BeanPostProcessorChecker : Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2025-12-08T06:11:14.991Z  INFO 1 --- [email-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9005 (http)
+2025-12-08T06:11:15.028Z  INFO 1 --- [email-service] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-08T06:11:15.029Z  INFO 1 --- [email-service] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-12-08T06:11:15.441Z  INFO 1 --- [email-service] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-08T06:11:15.454Z  INFO 1 --- [email-service] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 9685 ms
+2025-12-08T06:11:22.173Z  INFO 1 --- [email-service] [           main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2025-12-08T06:11:22.561Z  WARN 1 --- [email-service] [           main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-12-08T06:11:22.611Z  INFO 1 --- [email-service] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-12-08T06:11:23.226Z  INFO 1 --- [email-service] [           main] o.a.k.clients.admin.AdminClientConfig    : AdminClientConfig values: 
+	auto.include.jmx.reporter = true
+	bootstrap.controllers = []
+	bootstrap.servers = [host.docker.internal:9092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = email-service-admin-0
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	enable.metrics.push = true
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+2025-12-08T06:11:23.403Z  WARN 1 --- [email-service] [           main] org.apache.kafka.clients.ClientUtils     : Couldn't resolve server host.docker.internal:9092 from bootstrap.servers as DNS resolution failed for host.docker.internal
+2025-12-08T06:11:23.417Z ERROR 1 --- [email-service] [           main] o.springframework.kafka.core.KafkaAdmin  : Could not create admin
+
+org.apache.kafka.common.KafkaException: Failed to create new KafkaAdminClient
+	at org.apache.kafka.clients.admin.KafkaAdminClient.createInternal(KafkaAdminClient.java:541) ~[kafka-clients-3.7.1.jar!/:na]
+	at org.apache.kafka.clients.admin.Admin.create(Admin.java:147) ~[kafka-clients-3.7.1.jar!/:na]
+	at org.apache.kafka.clients.admin.AdminClient.create(AdminClient.java:49) ~[kafka-clients-3.7.1.jar!/:na]
+	at org.springframework.kafka.core.KafkaAdmin.createAdmin(KafkaAdmin.java:393) ~[spring-kafka-3.2.4.jar!/:3.2.4]
+	at org.springframework.kafka.core.KafkaAdmin.initialize(KafkaAdmin.java:256) ~[spring-kafka-3.2.4.jar!/:3.2.4]
+	at org.springframework.kafka.core.KafkaAdmin.afterSingletonsInstantiated(KafkaAdmin.java:238) ~[spring-kafka-3.2.4.jar!/:3.2.4]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:986) ~[spring-beans-6.1.13.jar!/:6.1.13]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:971) ~[spring-context-6.1.13.jar!/:6.1.13]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625) ~[spring-context-6.1.13.jar!/:6.1.13]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.3.4.jar!/:3.3.4]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.3.4.jar!/:3.3.4]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.3.4.jar!/:3.3.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335) ~[spring-boot-3.3.4.jar!/:3.3.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) ~[spring-boot-3.3.4.jar!/:3.3.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352) ~[spring-boot-3.3.4.jar!/:3.3.4]
+	at com.example.demo.EmailServiceApplication.main(EmailServiceApplication.java:9) ~[!/:0.0.1-SNAPSHOT]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569) ~[na:na]
+	at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:102) ~[email-service.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:64) ~[email-service.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.launch.JarLauncher.main(JarLauncher.java:40) ~[email-service.jar:0.0.1-SNAPSHOT]
+Caused by: org.apache.kafka.common.config.ConfigException: No resolvable bootstrap urls given in bootstrap.servers
+	at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:103) ~[kafka-clients-3.7.1.jar!/:na]
+	at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:62) ~[kafka-clients-3.7.1.jar!/:na]
+	at org.apache.kafka.clients.admin.internals.AdminBootstrapAddresses.fromConfig(AdminBootstrapAddresses.java:72) ~[kafka-clients-3.7.1.jar!/:na]
+	at org.apache.kafka.clients.admin.KafkaAdminClient.createInternal(KafkaAdminClient.java:510) ~[kafka-clients-3.7.1.jar!/:na]
+	... 22 common frames omitted
+
+2025-12-08T06:11:23.551Z  INFO 1 --- [email-service] [           main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2025-12-08T06:11:23.966Z  INFO 1 --- [email-service] [           main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2025-12-08T06:11:24.131Z  INFO 1 --- [email-service] [           main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-12-08T06:11:24.237Z  INFO 1 --- [email-service] [           main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2025-12-08T06:11:24.238Z  INFO 1 --- [email-service] [           main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2025-12-08T06:11:24.238Z  INFO 1 --- [email-service] [           main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2025-12-08T06:11:24.238Z  INFO 1 --- [email-service] [           main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2025-12-08T06:11:24.238Z  INFO 1 --- [email-service] [           main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2025-12-08T06:11:24.238Z  INFO 1 --- [email-service] [           main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2025-12-08T06:11:24.239Z  INFO 1 --- [email-service] [           main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2025-12-08T06:11:27.981Z  INFO 1 --- [email-service] [           main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2025-12-08T06:11:28.001Z  INFO 1 --- [email-service] [           main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2025-12-08T06:11:28.025Z  INFO 1 --- [email-service] [           main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-12-08T06:11:28.036Z  INFO 1 --- [email-service] [           main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1765174288033 with initial instances count: 2
+2025-12-08T06:11:28.075Z  INFO 1 --- [email-service] [           main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application EMAIL-SERVICE with eureka with status UP
+2025-12-08T06:11:28.085Z  INFO 1 --- [email-service] [           main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1765174288085, current=UP, previous=STARTING]
+2025-12-08T06:11:28.116Z  INFO 1 --- [email-service] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_EMAIL-SERVICE/c51829b58ea0:email-service:9005: registering service...
+2025-12-08T06:11:28.307Z  INFO 1 --- [email-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9005 (http) with context path '/'
+2025-12-08T06:11:28.324Z  INFO 1 --- [email-service] [           main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 9005
+2025-12-08T06:11:28.769Z  INFO 1 --- [email-service] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_EMAIL-SERVICE/c51829b58ea0:email-service:9005 - registration status: 204
+2025-12-08T06:11:28.781Z  INFO 1 --- [email-service] [           main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [kafka:29092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-email-group-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = email-group
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2025-12-08T06:11:29.162Z  INFO 1 --- [email-service] [           main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-12-08T06:11:29.842Z  INFO 1 --- [email-service] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.7.1
+2025-12-08T06:11:29.843Z  INFO 1 --- [email-service] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: e2494e6ffb89f828
+2025-12-08T06:11:29.844Z  INFO 1 --- [email-service] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1765174289839
+2025-12-08T06:11:29.857Z  INFO 1 --- [email-service] [           main] o.a.k.c.c.internals.LegacyKafkaConsumer  : [Consumer clientId=consumer-email-group-1, groupId=email-group] Subscribed to topic(s): ticket-confirmation
+2025-12-08T06:11:29.965Z  INFO 1 --- [email-service] [           main] c.example.demo.EmailServiceApplication   : Started EmailServiceApplication in 27.736 seconds (process running for 30.098)
+2025-12-08T06:11:33.076Z  WARN 1 --- [email-service] [ntainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-email-group-1, groupId=email-group] Error while fetching metadata with correlation id 2 : {ticket-confirmation=LEADER_NOT_AVAILABLE}
+2025-12-08T06:11:33.079Z  INFO 1 --- [email-service] [ntainer#0-0-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-email-group-1, groupId=email-group] Cluster ID: v6DM9WxsS6OL-hgltxcMVw
+2025-12-08T06:11:33.412Z  WARN 1 --- [email-service] [ntainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-email-group-1, groupId=email-group] Error while fetching metadata with correlation id 5 : {ticket-confirmation=LEADER_NOT_AVAILABLE}
+2025-12-08T06:11:33.719Z  WARN 1 --- [email-service] [ntainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-email-group-1, groupId=email-group] Error while fetching metadata with correlation id 6 : {ticket-confirmation=LEADER_NOT_AVAILABLE}
+2025-12-08T06:11:34.653Z  WARN 1 --- [email-service] [ntainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-email-group-1, groupId=email-group] Error while fetching metadata with correlation id 8 : {ticket-confirmation=LEADER_NOT_AVAILABLE}
+2025-12-08T06:11:39.161Z  INFO 1 --- [email-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-email-group-1, groupId=email-group] Discovered group coordinator kafka:29092 (id: 2147483646 rack: null)
+2025-12-08T06:11:39.177Z  INFO 1 --- [email-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-email-group-1, groupId=email-group] (Re-)joining group
+2025-12-08T06:11:39.309Z  INFO 1 --- [email-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-email-group-1, groupId=email-group] Request joining group due to: need to re-join with the given member-id: consumer-email-group-1-d8641abe-86c8-4874-b259-7b64d23a5f33
+2025-12-08T06:11:39.311Z  INFO 1 --- [email-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-email-group-1, groupId=email-group] (Re-)joining group
+2025-12-08T06:11:42.420Z  INFO 1 --- [email-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-email-group-1, groupId=email-group] Successfully joined group with generation Generation{generationId=1, memberId='consumer-email-group-1-d8641abe-86c8-4874-b259-7b64d23a5f33', protocol='range'}
+2025-12-08T06:11:42.485Z  INFO 1 --- [email-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-email-group-1, groupId=email-group] Finished assignment for group at generation 1: {consumer-email-group-1-d8641abe-86c8-4874-b259-7b64d23a5f33=Assignment(partitions=[ticket-confirmation-0])}
+2025-12-08T06:11:42.933Z  INFO 1 --- [email-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-email-group-1, groupId=email-group] Successfully synced group in generation Generation{generationId=1, memberId='consumer-email-group-1-d8641abe-86c8-4874-b259-7b64d23a5f33', protocol='range'}
+2025-12-08T06:11:42.936Z  INFO 1 --- [email-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-email-group-1, groupId=email-group] Notifying assignor about the new Assignment(partitions=[ticket-confirmation-0])
+2025-12-08T06:11:42.943Z  INFO 1 --- [email-service] [ntainer#0-0-C-1] k.c.c.i.ConsumerRebalanceListenerInvoker : [Consumer clientId=consumer-email-group-1, groupId=email-group] Adding newly assigned partitions: ticket-confirmation-0
+2025-12-08T06:11:43.009Z  INFO 1 --- [email-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-email-group-1, groupId=email-group] Found no committed offset for partition ticket-confirmation-0
+2025-12-08T06:11:43.062Z  INFO 1 --- [email-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-email-group-1, groupId=email-group] Found no committed offset for partition ticket-confirmation-0
+2025-12-08T06:11:43.170Z  INFO 1 --- [email-service] [d | email-group] o.a.k.c.c.internals.SubscriptionState    : [Consumer clientId=consumer-email-group-1, groupId=email-group] Resetting offset for partition ticket-confirmation-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[kafka:29092 (id: 1 rack: null)], epoch=0}}.
+2025-12-08T06:11:43.318Z  INFO 1 --- [email-service] [ntainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : email-group: partitions assigned: [ticket-confirmation-0]
+2025-12-08T06:15:58.726Z  INFO 1 --- [email-service] [ntainer#0-0-C-1] c.example.demo.listener.EmailListener    : 📩 Email-service received: Ticket booked for passengerId=1, flightId=1, pnr=76e02619
+2025-12-08T06:16:41.947Z  INFO 1 --- [email-service] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration

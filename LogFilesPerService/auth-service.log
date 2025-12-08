@@ -1,0 +1,62 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.1.2)
+
+2025-12-08T06:10:37.321Z  INFO 1 --- [           main] c.e.authservice.ApiGatewayApplication    : Starting ApiGatewayApplication v0.0.1-SNAPSHOT using Java 17.0.17 with PID 1 (/app/app.jar started by root in /app)
+2025-12-08T06:10:37.350Z  INFO 1 --- [           main] c.e.authservice.ApiGatewayApplication    : No active profile set, falling back to 1 default profile: "default"
+2025-12-08T06:10:44.223Z  INFO 1 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-08T06:10:44.682Z  INFO 1 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 433 ms. Found 2 JPA repository interfaces.
+2025-12-08T06:10:46.769Z  INFO 1 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=aa41e558-7344-37ac-9faf-f767898f04bc
+2025-12-08T06:10:49.078Z  INFO 1 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8085 (http)
+2025-12-08T06:10:49.106Z  INFO 1 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-08T06:10:49.108Z  INFO 1 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.11]
+2025-12-08T06:10:49.436Z  INFO 1 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-08T06:10:49.442Z  INFO 1 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 11715 ms
+2025-12-08T06:10:50.779Z  INFO 1 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-08T06:10:51.101Z  INFO 1 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.6.Final
+2025-12-08T06:10:51.111Z  INFO 1 --- [           main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2025-12-08T06:10:51.615Z  INFO 1 --- [           main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2025-12-08T06:10:52.201Z  INFO 1 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-08T06:10:52.251Z  INFO 1 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-12-08T06:10:52.780Z  INFO 1 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@e344ad3
+2025-12-08T06:10:52.785Z  INFO 1 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-12-08T06:10:53.390Z  INFO 1 --- [           main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2025-12-08T06:10:54.621Z  INFO 1 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-12-08T06:10:55.842Z  INFO 1 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-08T06:10:57.032Z  WARN 1 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-08T06:10:58.325Z  INFO 1 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-12-08T06:10:58.540Z  INFO 1 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1150d471, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@709f0202, org.springframework.security.web.context.SecurityContextHolderFilter@76d7881e, org.springframework.security.web.header.HeaderWriterFilter@2accaec2, org.springframework.security.web.authentication.logout.LogoutFilter@56b8aaf1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7945b206, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7d42542, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@654e6a90, org.springframework.security.web.session.SessionManagementFilter@40709f9, org.springframework.security.web.access.ExceptionTranslationFilter@1095d23a, org.springframework.security.web.access.intercept.AuthorizationFilter@1e3ff233]
+2025-12-08T06:11:01.713Z  INFO 1 --- [           main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2025-12-08T06:11:02.073Z  WARN 1 --- [           main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-12-08T06:11:02.535Z  INFO 1 --- [           main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2025-12-08T06:11:02.940Z  INFO 1 --- [           main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2025-12-08T06:11:02.976Z  INFO 1 --- [           main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-12-08T06:11:03.123Z  INFO 1 --- [           main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2025-12-08T06:11:03.125Z  INFO 1 --- [           main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2025-12-08T06:11:03.126Z  INFO 1 --- [           main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2025-12-08T06:11:03.127Z  INFO 1 --- [           main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2025-12-08T06:11:03.129Z  INFO 1 --- [           main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2025-12-08T06:11:03.131Z  INFO 1 --- [           main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2025-12-08T06:11:03.131Z  INFO 1 --- [           main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2025-12-08T06:11:06.216Z  INFO 1 --- [           main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2025-12-08T06:11:06.236Z  INFO 1 --- [           main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2025-12-08T06:11:06.250Z  INFO 1 --- [           main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-12-08T06:11:06.279Z  INFO 1 --- [           main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1765174266271 with initial instances count: 2
+2025-12-08T06:11:06.295Z  INFO 1 --- [           main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application AUTH-SERVICE with eureka with status UP
+2025-12-08T06:11:06.297Z  INFO 1 --- [           main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1765174266297, current=UP, previous=STARTING]
+2025-12-08T06:11:06.312Z  INFO 1 --- [nfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_AUTH-SERVICE/335291f9265f:auth-service:8085: registering service...
+2025-12-08T06:11:06.470Z  INFO 1 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8085 (http) with context path ''
+2025-12-08T06:11:06.480Z  INFO 1 --- [           main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8085
+2025-12-08T06:11:06.593Z  INFO 1 --- [           main] c.e.authservice.ApiGatewayApplication    : Started ApiGatewayApplication in 32.257 seconds (process running for 35.527)
+2025-12-08T06:11:06.688Z  INFO 1 --- [nfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_AUTH-SERVICE/335291f9265f:auth-service:8085 - registration status: 204
+2025-12-08T06:14:12.028Z  INFO 1 --- [nio-8085-exec-9] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-08T06:14:12.035Z  INFO 1 --- [nio-8085-exec-9] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-08T06:14:12.112Z  INFO 1 --- [nio-8085-exec-9] o.s.web.servlet.DispatcherServlet        : Completed initialization in 77 ms
+Incoming roles: null
+Incoming roles: [admin]
+2025-12-08T06:16:20.815Z  INFO 1 --- [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration

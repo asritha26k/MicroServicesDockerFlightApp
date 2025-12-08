@@ -15,7 +15,7 @@
 **/build/
 
 ### Logs ###
-*.log
+###*.log
 
 ### Operating System ###
 .DS_Store

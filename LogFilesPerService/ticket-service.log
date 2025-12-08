@@ -1,0 +1,205 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.1.1)
+
+2025-12-08T06:11:14.243Z  INFO 1 --- [           main] com.example.TicketServiceApplication     : Starting TicketServiceApplication v0.0.1-SNAPSHOT using Java 17.0.17 with PID 1 (/app/ticket-service.jar started by root in /app)
+2025-12-08T06:11:14.246Z DEBUG 1 --- [           main] com.example.TicketServiceApplication     : Running with Spring Boot v3.1.1, Spring v6.0.10
+2025-12-08T06:11:14.265Z  INFO 1 --- [           main] com.example.TicketServiceApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-12-08T06:11:14.627Z  INFO 1 --- [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://config-server:8888
+2025-12-08T06:11:14.627Z  INFO 1 --- [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=ticket-service, profiles=[default], label=null, version=0e79c9d10ef7b0fd54204ed574affff6d0533a24, state=
+2025-12-08T06:11:14.628Z  INFO 1 --- [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://config-server:8888
+2025-12-08T06:11:14.629Z  INFO 1 --- [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=ticket-service, profiles=[default], label=null, version=0e79c9d10ef7b0fd54204ed574affff6d0533a24, state=
+2025-12-08T06:11:14.629Z  INFO 1 --- [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://config-server:8888
+2025-12-08T06:11:14.629Z  INFO 1 --- [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=ticket-service, profiles=[default], label=null, version=0e79c9d10ef7b0fd54204ed574affff6d0533a24, state=
+2025-12-08T06:11:19.132Z DEBUG 1 --- [           main] o.s.c.openfeign.FeignClientsRegistrar$1  : Identified candidate component class: URL [jar:file:/app/ticket-service.jar!/BOOT-INF/classes!/com/example/feign/FlightInterface.class]
+2025-12-08T06:11:19.136Z DEBUG 1 --- [           main] o.s.c.openfeign.FeignClientsRegistrar$1  : Identified candidate component class: URL [jar:file:/app/ticket-service.jar!/BOOT-INF/classes!/com/example/feign/PassengerInterface.class]
+2025-12-08T06:11:19.651Z DEBUG 1 --- [           main] i.g.r.s.u.RxJava2OnClasspathCondition    : RxJava2 related Aspect extensions are not activated, because RxJava2 is not on the classpath.
+2025-12-08T06:11:19.654Z DEBUG 1 --- [           main] i.g.r.s.u.ReactorOnClasspathCondition    : Reactor related Aspect extensions are not activated because Resilience4j Reactor module is not on the classpath.
+2025-12-08T06:11:19.697Z DEBUG 1 --- [           main] i.g.r.s.u.RxJava2OnClasspathCondition    : RxJava2 related Aspect extensions are not activated, because RxJava2 is not on the classpath.
+2025-12-08T06:11:19.698Z DEBUG 1 --- [           main] i.g.r.s.u.ReactorOnClasspathCondition    : Reactor related Aspect extensions are not activated because Resilience4j Reactor module is not on the classpath.
+2025-12-08T06:11:20.010Z DEBUG 1 --- [           main] i.g.r.s.u.RxJava2OnClasspathCondition    : RxJava2 related Aspect extensions are not activated, because RxJava2 is not on the classpath.
+2025-12-08T06:11:20.012Z DEBUG 1 --- [           main] i.g.r.s.u.ReactorOnClasspathCondition    : Reactor related Aspect extensions are not activated because Resilience4j Reactor module is not on the classpath.
+2025-12-08T06:11:20.133Z DEBUG 1 --- [           main] i.g.r.s.u.RxJava2OnClasspathCondition    : RxJava2 related Aspect extensions are not activated, because RxJava2 is not on the classpath.
+2025-12-08T06:11:20.138Z DEBUG 1 --- [           main] i.g.r.s.u.ReactorOnClasspathCondition    : Reactor related Aspect extensions are not activated because Resilience4j Reactor module is not on the classpath.
+2025-12-08T06:11:20.282Z DEBUG 1 --- [           main] i.g.r.s.u.RxJava2OnClasspathCondition    : RxJava2 related Aspect extensions are not activated, because RxJava2 is not on the classpath.
+2025-12-08T06:11:20.283Z DEBUG 1 --- [           main] i.g.r.s.u.ReactorOnClasspathCondition    : Reactor related Aspect extensions are not activated because Resilience4j Reactor module is not on the classpath.
+2025-12-08T06:11:20.403Z DEBUG 1 --- [           main] i.g.r.s.u.RxJava2OnClasspathCondition    : RxJava2 related Aspect extensions are not activated, because RxJava2 is not on the classpath.
+2025-12-08T06:11:20.406Z DEBUG 1 --- [           main] i.g.r.s.u.ReactorOnClasspathCondition    : Reactor related Aspect extensions are not activated because Resilience4j Reactor module is not on the classpath.
+2025-12-08T06:11:22.492Z  INFO 1 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-08T06:11:23.532Z  INFO 1 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 943 ms. Found 1 JPA repository interfaces.
+2025-12-08T06:11:28.957Z  INFO 1 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=b2d15ca2-eced-3f54-91c4-0b62fbc7576b
+2025-12-08T06:11:29.886Z DEBUG 1 --- [           main] o.s.c.openfeign.FeignClientFactoryBean   : Creating a FeignClientFactoryBean.
+2025-12-08T06:11:29.972Z  INFO 1 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'com.example.feign.FlightInterface' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2025-12-08T06:11:29.974Z DEBUG 1 --- [           main] o.s.c.openfeign.FeignClientFactoryBean   : Creating a FeignClientFactoryBean.
+2025-12-08T06:11:29.978Z  INFO 1 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'com.example.feign.PassengerInterface' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2025-12-08T06:11:34.276Z  INFO 1 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9003 (http)
+2025-12-08T06:11:34.356Z  INFO 1 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-08T06:11:34.358Z  INFO 1 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.10]
+2025-12-08T06:11:35.274Z  INFO 1 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-08T06:11:35.305Z  INFO 1 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 20640 ms
+2025-12-08T06:11:38.654Z  INFO 1 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-08T06:11:39.175Z  INFO 1 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.5.Final
+2025-12-08T06:11:39.194Z  INFO 1 --- [           main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2025-12-08T06:11:39.936Z  INFO 1 --- [           main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2025-12-08T06:11:40.423Z  INFO 1 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-08T06:11:40.494Z  INFO 1 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-12-08T06:11:41.265Z  INFO 1 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@18acfe88
+2025-12-08T06:11:41.280Z  INFO 1 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-12-08T06:11:42.230Z  INFO 1 --- [           main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2025-12-08T06:11:48.198Z  INFO 1 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Hibernate: create table tickets (ticket_id integer not null, booked boolean, flight_id integer, passenger_id integer, pnr varchar(255), seat_no varchar(255), primary key (ticket_id))
+Hibernate: alter table if exists tickets drop constraint if exists UK7xc61o2nos7wg3ipfnw5kdm92
+2025-12-08T06:11:48.529Z  WARN 1 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-12-08T06:11:48.531Z  WARN 1 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "uk7xc61o2nos7wg3ipfnw5kdm92" of relation "tickets" does not exist, skipping
+Hibernate: alter table if exists tickets add constraint UK7xc61o2nos7wg3ipfnw5kdm92 unique (flight_id, seat_no)
+Hibernate: alter table if exists tickets drop constraint if exists UK_mhs2xlplwaswn12ixbs6dvxdk
+2025-12-08T06:11:48.586Z  WARN 1 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-12-08T06:11:48.587Z  WARN 1 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "uk_mhs2xlplwaswn12ixbs6dvxdk" of relation "tickets" does not exist, skipping
+Hibernate: alter table if exists tickets add constraint UK_mhs2xlplwaswn12ixbs6dvxdk unique (pnr)
+Hibernate: create sequence tickets_seq start with 1 increment by 50
+2025-12-08T06:11:48.659Z  INFO 1 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-08T06:11:52.709Z  WARN 1 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-08T06:11:53.306Z  INFO 1 --- [           main] o.s.c.openfeign.FeignClientFactoryBean   : For 'PASSENGER-SERVICE' URL not provided. Will try picking an instance via load-balancing.
+2025-12-08T06:11:53.878Z  INFO 1 --- [           main] o.s.c.openfeign.FeignClientFactoryBean   : For 'FLIGHT-SERVICE' URL not provided. Will try picking an instance via load-balancing.
+2025-12-08T06:12:03.050Z  INFO 1 --- [           main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2025-12-08T06:12:03.410Z  WARN 1 --- [           main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-12-08T06:12:03.482Z  INFO 1 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 4 endpoint(s) beneath base path '/actuator'
+2025-12-08T06:12:03.680Z  INFO 1 --- [           main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2025-12-08T06:12:03.841Z  INFO 1 --- [           main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2025-12-08T06:12:03.866Z  INFO 1 --- [           main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-12-08T06:12:03.958Z  INFO 1 --- [           main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2025-12-08T06:12:03.959Z  INFO 1 --- [           main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2025-12-08T06:12:03.959Z  INFO 1 --- [           main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2025-12-08T06:12:03.959Z  INFO 1 --- [           main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2025-12-08T06:12:03.960Z  INFO 1 --- [           main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2025-12-08T06:12:03.960Z  INFO 1 --- [           main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2025-12-08T06:12:03.960Z  INFO 1 --- [           main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2025-12-08T06:12:04.805Z  INFO 1 --- [           main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2025-12-08T06:12:04.815Z  INFO 1 --- [           main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2025-12-08T06:12:04.825Z  INFO 1 --- [           main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-12-08T06:12:04.838Z  INFO 1 --- [           main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1765174324836 with initial instances count: 4
+2025-12-08T06:12:04.865Z  INFO 1 --- [           main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application TICKET-SERVICE with eureka with status UP
+2025-12-08T06:12:04.867Z  INFO 1 --- [           main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1765174324867, current=UP, previous=STARTING]
+2025-12-08T06:12:04.873Z  INFO 1 --- [nfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_TICKET-SERVICE/35586c9b6902:ticket-service:9003: registering service...
+2025-12-08T06:12:04.914Z  INFO 1 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9003 (http) with context path ''
+2025-12-08T06:12:04.917Z  INFO 1 --- [           main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 9003
+2025-12-08T06:12:04.992Z  INFO 1 --- [           main] com.example.TicketServiceApplication     : Started TicketServiceApplication in 59.38 seconds (process running for 63.242)
+2025-12-08T06:12:04.996Z  INFO 1 --- [nfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_TICKET-SERVICE/35586c9b6902:ticket-service:9003 - registration status: 204
+2025-12-08T06:12:14.302Z  INFO 1 --- [nio-9003-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-08T06:12:14.302Z  INFO 1 --- [nio-9003-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-08T06:12:14.309Z  INFO 1 --- [nio-9003-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+Hibernate: select t1_0.ticket_id from tickets t1_0 where t1_0.flight_id=? and t1_0.seat_no=? fetch first ? rows only
+Hibernate: select nextval('tickets_seq')
+Hibernate: insert into tickets (booked,flight_id,passenger_id,pnr,seat_no,ticket_id) values (?,?,?,?,?,?)
+2025-12-08T06:15:55.021Z  INFO 1 --- [nio-9003-exec-9] o.a.k.clients.producer.ProducerConfig    : ProducerConfig values: 
+	acks = -1
+	auto.include.jmx.reporter = true
+	batch.size = 16384
+	bootstrap.servers = [kafka:29092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = producer-1
+	compression.type = none
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.adaptive.partitioning.enable = true
+	partitioner.availability.timeout.ms = 0
+	partitioner.class = null
+	partitioner.ignore.keys = false
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+
+2025-12-08T06:15:55.119Z  INFO 1 --- [nio-9003-exec-9] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=producer-1] Instantiated an idempotent producer.
+2025-12-08T06:15:55.362Z  INFO 1 --- [nio-9003-exec-9] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.4.1
+2025-12-08T06:15:55.363Z  INFO 1 --- [nio-9003-exec-9] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 8a516edc2755df89
+2025-12-08T06:15:55.363Z  INFO 1 --- [nio-9003-exec-9] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1765174555357
+2025-12-08T06:15:56.222Z  INFO 1 --- [ad | producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=producer-1] Resetting the last seen epoch of partition ticket-confirmation-0 to 0 since the associated topicId changed from null to 98w8uhpLQ6aGqdV0YOakvA
+2025-12-08T06:15:56.228Z  INFO 1 --- [ad | producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=producer-1] Cluster ID: v6DM9WxsS6OL-hgltxcMVw
+2025-12-08T06:15:57.118Z  INFO 1 --- [ad | producer-1] o.a.k.c.p.internals.TransactionManager   : [Producer clientId=producer-1] ProducerId set to 0 with epoch 0
+2025-12-08T06:16:13.332Z DEBUG 1 --- [nio-9003-exec-4] i.g.r.s.c.c.CircuitBreakerAspect         : Created or retrieved circuit breaker 'flightService' with failure rate '100.0' for method: 'com.example.service.TicketService#getByPnrService'
+Hibernate: select t1_0.ticket_id,t1_0.booked,t1_0.flight_id,t1_0.passenger_id,t1_0.pnr,t1_0.seat_no from tickets t1_0 where t1_0.pnr=?
+2025-12-08T06:16:13.575Z DEBUG 1 --- [nio-9003-exec-4] RetryableFeignBlockingLoadBalancerClient : Service instance retrieved from LoadBalancedRetryContext: was null. Reattempting service instance selection
+2025-12-08T06:16:13.650Z DEBUG 1 --- [nio-9003-exec-4] RetryableFeignBlockingLoadBalancerClient : Selected service instance: [EurekaServiceInstance@1c5c37b2 instance = InstanceInfo [instanceId = 5dae064da0b7:passenger-service:9001, appName = PASSENGER-SERVICE, hostName = 5dae064da0b7, status = UP, ipAddr = 172.20.0.13, port = 9001, securePort = 443, dataCenterInfo = com.netflix.appinfo.MyDataCenterInfo@68f5a712]
+2025-12-08T06:16:13.651Z DEBUG 1 --- [nio-9003-exec-4] RetryableFeignBlockingLoadBalancerClient : Using service instance from LoadBalancedRetryContext: [EurekaServiceInstance@1c5c37b2 instance = InstanceInfo [instanceId = 5dae064da0b7:passenger-service:9001, appName = PASSENGER-SERVICE, hostName = 5dae064da0b7, status = UP, ipAddr = 172.20.0.13, port = 9001, securePort = 443, dataCenterInfo = com.netflix.appinfo.MyDataCenterInfo@68f5a712]
+2025-12-08T06:16:13.918Z DEBUG 1 --- [nio-9003-exec-4] RetryableFeignBlockingLoadBalancerClient : Service instance retrieved from LoadBalancedRetryContext: was null. Reattempting service instance selection
+2025-12-08T06:16:13.919Z DEBUG 1 --- [nio-9003-exec-4] RetryableFeignBlockingLoadBalancerClient : Selected service instance: [EurekaServiceInstance@31769c62 instance = InstanceInfo [instanceId = 1f0c4c6d0021:flight-service:9002, appName = FLIGHT-SERVICE, hostName = 1f0c4c6d0021, status = UP, ipAddr = 172.20.0.12, port = 9002, securePort = 443, dataCenterInfo = com.netflix.appinfo.MyDataCenterInfo@3a6a7ff4]
+2025-12-08T06:16:13.920Z DEBUG 1 --- [nio-9003-exec-4] RetryableFeignBlockingLoadBalancerClient : Using service instance from LoadBalancedRetryContext: [EurekaServiceInstance@31769c62 instance = InstanceInfo [instanceId = 1f0c4c6d0021:flight-service:9002, appName = FLIGHT-SERVICE, hostName = 1f0c4c6d0021, status = UP, ipAddr = 172.20.0.12, port = 9002, securePort = 443, dataCenterInfo = com.netflix.appinfo.MyDataCenterInfo@3a6a7ff4]
+2025-12-08T06:16:14.253Z DEBUG 1 --- [nio-9003-exec-4] i.g.r.c.i.CircuitBreakerStateMachine     : CircuitBreaker 'flightService' succeeded:
+2025-12-08T06:16:14.259Z DEBUG 1 --- [nio-9003-exec-4] i.g.r.c.i.CircuitBreakerStateMachine     : Event SUCCESS published: 2025-12-08T06:16:14.255226622Z[Etc/UTC]: CircuitBreaker 'flightService' recorded a successful call. Elapsed time: 908 ms
