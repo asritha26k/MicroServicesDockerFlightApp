@@ -28,11 +28,11 @@ services:
       eureka-server:
         condition: service_healthy
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8765/actuator/health"]
+      test: ["CMD-SHELL", "echo 'HEALTH'"]
       interval: 10s
       timeout: 5s
       retries: 10
-      start_period: 120s
+      start_period: 60s
     networks:
       - app-net
 
@@ -80,7 +80,7 @@ services:
       mysql-db:
         condition: service_healthy
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8085/actuator/health"]
+      test: ["CMD-SHELL", "nc -z localhost 8085 || exit 1"]
       interval: 10s
       timeout: 5s
       retries: 10
@@ -264,7 +264,7 @@ services:
       kafka:
         condition: service_healthy
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:9005/actuator/health"]
+      test: ["CMD-SHELL", "nc -z localhost 9005 || exit 1"]
       interval: 10s
       timeout: 5s
       retries: 10

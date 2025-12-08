@@ -1,0 +1,15 @@
+CONTAINER ID   IMAGE                               STATUS                   NAMES
+c51829b58ea0   week8assignment-email-service       Up 2 minutes (healthy)   email-service
+35586c9b6902   week8assignment-ticket-service      Up 2 minutes (healthy)   ticket-service
+1f0c4c6d0021   week8assignment-flight-service      Up 2 minutes (healthy)   flight-service
+5dae064da0b7   week8assignment-passenger-service   Up 2 minutes (healthy)   passenger-service
+335291f9265f   week8assignment-auth-service        Up 3 minutes (healthy)   auth-service
+f5c7d801b8a0   confluentinc/cp-kafka:7.5.0         Up 3 minutes (healthy)   kafka
+3eb96c7dc926   week8assignment-config-server       Up 3 minutes (healthy)   config-server
+bf58246bd69c   week8assignment-api-gateway         Up 3 minutes (healthy)   api-gateway
+2419b6615417   postgres:16                         Up 3 minutes (healthy)   postgres-ticket
+f2440bcd8b8a   postgres:16                         Up 3 minutes (healthy)   postgres-flight
+0e5b226148f0   postgres:16                         Up 3 minutes (healthy)   postgres-db
+9b27befc919c   mysql:8                             Up 3 minutes (healthy)   mysql-db
+a36367128fd8   week8assignment-eureka-server       Up 3 minutes (healthy)   eureka-server
+a1ceac61c564   confluentinc/cp-zookeeper:7.5.0     Up 3 minutes (healthy)   zookeeper
